@@ -1,26 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #0b1f4a;
+  --navy-mid: #1a3570;
+  --navy-light: #2563eb;
+  --gold: #d97706;
+  --gold-light: #fbbf24;
+  --red: #dc2626;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { scroll-behavior: smooth; box-sizing: border-box; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #1a3570; border-radius: 3px; }
+
+/* ── keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── base animation helpers ── */
+.animate-fade-up { animation: fadeUp 0.7s ease both; }
+.animate-fade-in { animation: fadeIn 0.6s ease both; }
+.animate-float   { animation: float 4s ease-in-out infinite; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ── gradient text ── */
+.text-gradient {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-blue {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── glass ── */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.glass-white {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ── shimmer button ── */
+.btn-shimmer {
+  background: linear-gradient(90deg, #1a3570 0%, #2563eb 40%, #1a3570 80%, #2563eb 100%);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, box-shadow 0.3s ease;
+}
+.btn-shimmer:hover {
+  background-position: right center;
+  box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+}
+
+/* ── progress bar ── */
+.progress-bar {
+  background: linear-gradient(90deg, #1a3570, #2563eb, #fbbf24);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* ══════════════════════════════════════════
+   STAT CARD  (hero dark glass)
+══════════════════════════════════════════ */
+.stat-card {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow  0.3s ease,
+              border-color 0.3s ease,
+              background  0.3s ease;
+  cursor: default;
+}
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.5),
+              0 20px 50px rgba(0,0,0,0.35),
+              0 0 40px rgba(251,191,36,0.15);
+  background: rgba(255,255,255,0.14) !important;
+}
+.stat-card .stat-value {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.stat-card:hover .stat-value {
+  color: #fbbf24;
+  text-shadow: 0 0 30px rgba(251,191,36,0.5);
+}
+.stat-card .stat-bar {
+  transition: width 0.4s ease, background-color 0.3s ease;
+}
+.stat-card:hover .stat-bar {
+  width: 3rem;
+  background-color: #fbbf24;
+}
+
+/* ══════════════════════════════════════════
+   PRACTICE AREA CARD
+══════════════════════════════════════════ */
+.practice-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease;
+}
+.practice-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.08) 0%, transparent 70%);
+  border-radius: inherit;
+}
+.practice-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 60px rgba(37,99,235,0.14);
+}
+.practice-card:hover::after {
+  opacity: 1;
+}
+.practice-icon {
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+}
+.practice-card:hover .practice-icon {
+  transform: rotate(-8deg) scale(1.15);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.practice-bar {
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+.practice-card:hover .practice-bar {
+  opacity: 1 !important;
+  height: 4px;
+}
+
+/* ══════════════════════════════════════════
+   TECHNOLOGY CARD
+══════════════════════════════════════════ */
+.tech-card {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease;
+}
+.tech-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 28px 60px rgba(37,99,235,0.13);
+}
+.tech-stripe {
+  transition: height 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  height: 8px;
+}
+.tech-card:hover .tech-stripe {
+  height: 16px;
+}
+.tech-icon {
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease;
+}
+.tech-card:hover .tech-icon {
+  transform: scale(1.18) rotate(-10deg);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.25);
+}
+
+/* ══════════════════════════════════════════
+   PROSECUTION BIG STAT CARD (dark glass)
+══════════════════════════════════════════ */
+.pros-stat-card {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow  0.3s ease,
+              background  0.3s ease;
+}
+.pros-stat-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.45),
+              0 24px 50px rgba(0,0,0,0.3),
+              0 0 50px rgba(251,191,36,0.12);
+  background: rgba(255,255,255,0.13) !important;
+}
+.pros-num {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.pros-stat-card:hover .pros-num {
+  color: #fbbf24;
+  text-shadow: 0 0 40px rgba(251,191,36,0.6);
+}
+
+/* ══════════════════════════════════════════
+   PROCESS STEP CARD (dark glass)
+══════════════════════════════════════════ */
+.step-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow  0.3s ease,
+              background  0.3s ease;
+}
+.step-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.step-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.13) !important;
+  box-shadow: 0 0 0 1px rgba(251,191,36,0.3),
+              0 20px 40px rgba(0,0,0,0.25);
+}
+.step-card:hover::before {
+  transform: scaleX(1);
+}
+.step-num {
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+              text-shadow 0.3s ease;
+  display: inline-block;
+}
+.step-card:hover .step-num {
+  transform: scale(1.1);
+  text-shadow: 0 0 30px rgba(251,191,36,0.5);
+}
+
+/* ══════════════════════════════════════════
+   CLIENT CARD
+══════════════════════════════════════════ */
+.client-card {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease;
+}
+.client-card.academic:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(37,99,235,0.18);
+}
+.client-card.enterprise:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(217,119,6,0.18);
+}
+.client-row {
+  transition: background 0.2s ease, transform 0.2s ease, padding-left 0.2s ease;
+  border-radius: 10px;
+  padding: 8px 6px;
+}
+.client-row:hover {
+  background: #eff6ff;
+  transform: translateX(6px);
+  padding-left: 12px;
+}
+.client-card.enterprise .client-row:hover {
+  background: #fffbeb;
+}
+
+/* ══════════════════════════════════════════
+   PILLAR CARD  (executive summary)
+══════════════════════════════════════════ */
+.pillar-card {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease,
+              background 0.3s ease;
+}
+.pillar-card:hover {
+  transform: translateX(8px);
+  box-shadow: -4px 0 20px rgba(37,99,235,0.1), 4px 0 20px rgba(37,99,235,0.06);
+  border-color: #bfdbfe;
+  background: #eff6ff !important;
+}
+.pillar-emoji {
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  display: inline-block;
+}
+.pillar-card:hover .pillar-emoji {
+  transform: scale(1.25) rotate(-8deg);
+}
+
+/* ══════════════════════════════════════════
+   DISTINCTION ROW  (executive summary list)
+══════════════════════════════════════════ */
+.distinction-row {
+  transition: background 0.2s ease, transform 0.2s ease, padding-left 0.2s ease;
+  border-radius: 14px;
+}
+.distinction-row:hover {
+  background: #eff6ff;
+  transform: translateX(6px);
+}
+.distinction-dot {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              background  0.3s ease;
+}
+.distinction-row:hover .distinction-dot {
+  transform: scale(1.5);
+  background: #2563eb;
+}
+
+/* ══════════════════════════════════════════
+   SUPPORT ROW  (proposal focus numbered list)
+══════════════════════════════════════════ */
+.support-row {
+  transition: background 0.2s ease, transform 0.2s ease;
+  border-radius: 14px;
+}
+.support-row:hover {
+  background: #eff6ff;
+  transform: translateX(6px);
+}
+.support-num {
+  transition: background 0.25s ease, color 0.25s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.support-row:hover .support-num {
+  background: #1d4ed8;
+  color: #ffffff;
+  transform: scale(1.15);
 }
