@@ -1,4 +1,5 @@
 import "./globals.css";
+import DisclaimerModal from "./components/DisclaimerModal";
 
 export const metadata = {
   title: "RNK Legalheads – Proposal for Eva Ad Ventures",
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <DisclaimerModal />
+        {children}
+      </body>
     </html>
   );
 }
