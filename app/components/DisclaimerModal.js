@@ -20,7 +20,7 @@ export default function DisclaimerModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6"  
       style={{ background: "rgba(4, 10, 28, 0.92)", backdropFilter: "blur(6px)" }}
     >
       <div

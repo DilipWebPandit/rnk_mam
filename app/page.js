@@ -1,3 +1,5 @@
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Logo from "./components/Logo";
 import StatCard from "./components/StatCard";
 import SectionLabel from "./components/SectionLabel";
@@ -205,42 +207,7 @@ const Icon = {
   ),
 };
 
-/* ══════════════════════════════════════════
-   NAVBAR
-══════════════════════════════════════════ */
-function Navbar() {
-  const links = [
-    { label: "Summary", href: "#executive" },
-    { label: "Practice", href: "#practice" },
-    { label: "Technology", href: "#technology" },
-    { label: "Prosecution", href: "#prosecution" },
-    { label: "Clients", href: "#clients" },
-  ];
-  return (
-    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-        <Logo />
-        <div className="hidden md:flex items-center gap-1">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="px-4 py-2 text-sm font-medium text-slate-600 rounded-lg hover:text-blue-700 hover:bg-blue-50 transition-all duration-200"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="mailto:contact@rnklegalheads.com"
-            className="ml-3 btn-shimmer text-white text-sm font-semibold px-5 py-2.5 rounded-xl flex items-center gap-2"
-          >
-            <Icon.Mail /> Contact Us
-          </a>
-        </div>
-      </div>
-    </nav>
-  );
-}
+/* Navbar — shared component imported above */
 
 /* ══════════════════════════════════════════
    HERO
@@ -597,6 +564,7 @@ function PracticeAreas() {
       color: "from-blue-600 to-indigo-600",
       bg: "bg-blue-50",
       border: "border-blue-100",
+      href: "/ip-prosecution#patents",
       desc: "Patentability support, drafting, filing, prosecution, FER/SER responses, hearings, grant follow-through, and portfolio management.",
     },
     {
@@ -606,6 +574,7 @@ function PracticeAreas() {
       color: "from-violet-600 to-purple-600",
       bg: "bg-violet-50",
       border: "border-violet-100",
+      href: "/ip-prosecution#designs",
       desc: "Design filing, registration strategy, prosecution support, renewals, and portfolio coordination.",
     },
     {
@@ -615,6 +584,7 @@ function PracticeAreas() {
       color: "from-rose-500 to-red-600",
       bg: "bg-rose-50",
       border: "border-rose-100",
+      href: "/ip-prosecution#trademarks",
       desc: "Brand protection, search and clearance support, filings, examination responses, opposition/cancellation support, and portfolio handling.",
     },
     {
@@ -624,6 +594,7 @@ function PracticeAreas() {
       color: "from-amber-500 to-orange-500",
       bg: "bg-amber-50",
       border: "border-amber-100",
+      href: "/practices",
       desc: "Commercial matters, NDA and licensing support, assignment documentation, agreement review and vetting, and in-house legal compliance assistance.",
     },
   ];
@@ -643,9 +614,10 @@ function PracticeAreas() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {areas.map((a) => (
-            <div
+            <a
               key={a.title}
-              className={`practice-card rounded-3xl p-6 border ${a.bg} ${a.border} flex flex-col`}
+              href={a.href}
+              className={`practice-card rounded-3xl p-6 border ${a.bg} ${a.border} flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
             >
               <div
                 className={`practice-icon w-14 h-14 rounded-2xl bg-linear-to-br ${a.color} flex items-center justify-center text-white mb-5 shadow-lg`}
@@ -666,7 +638,7 @@ function PracticeAreas() {
               <div
                 className={`practice-bar mt-5 h-1 rounded-full bg-linear-to-r ${a.color} opacity-40`}
               />
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -1150,120 +1122,6 @@ function ProposalFocus() {
         </div>
       </div>
     </section>
-  );
-}
-
-/* ══════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════ */
-function Footer() {
-  return (
-    <footer
-      style={{
-        background: "linear-gradient(160deg, #071328 0%, #0b1f4a 100%)",
-      }}
-      className="relative overflow-hidden pt-20 pb-10"
-    >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full bg-blue-600/10 blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* Top row */}
-        <div className="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
-          {/* Brand */}
-          <div>
-            <Logo light className="mb-5" />
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Built on Trust, Driven by Commitment. A leading IP and commercial
-              legal firm serving institutions, research ecosystems, and
-              enterprises across India.
-            </p>
-            <p
-              className="text-amber-400 italic font-semibold"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              &ldquo;Built on Trust, Driven by Commitment.&rdquo;
-            </p>
-          </div>
-
-          {/* Services */}
-          <div>
-            <p className="text-white font-bold mb-5">Practice Areas</p>
-            <ul className="space-y-2.5">
-              {[
-                "Patents",
-                "Designs",
-                "Trademarks",
-                "Commercial Matters",
-                "In-House Compliance",
-              ].map((s) => (
-                <li
-                  key={s}
-                  className="flex items-center gap-2 text-slate-400 text-sm hover:text-amber-400 transition-colors cursor-pointer"
-                >
-                  <span className="w-1 h-1 rounded-full bg-amber-400/50" />
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <p className="text-white font-bold mb-5">Get in Touch</p>
-            <div className="space-y-4">
-              <a
-                href="mailto:contact@rnklegalheads.com"
-                className="flex items-start gap-3 text-slate-400 text-sm hover:text-amber-400 transition-colors group"
-              >
-                <span className="mt-0.5 text-amber-400 group-hover:scale-110 transition-transform">
-                  <Icon.Mail />
-                </span>
-                contact@rnklegalheads.com
-              </a>
-              <div className="flex items-start gap-3 text-slate-400 text-sm">
-                <span className="mt-0.5 text-amber-400 shrink-0">
-                  <Icon.Phone />
-                </span>
-                +91 9779202789 | +91 6003416196
-              </div>
-              <div className="flex items-start gap-3 text-slate-400 text-sm">
-                <span className="mt-0.5 text-amber-400 shrink-0">
-                  <Icon.Location />
-                </span>
-                Plot No. 94, 3rd Floor, Pocket-10, Dwarka Sector 13, New Delhi
-                110078
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs">
-            Confidential | Prepared exclusively for Eva Ad Ventures Private
-            Limited
-          </p>
-          <div className="flex items-center gap-4">
-            {/* <a
-              href="/terms-and-conditions"
-              className="text-slate-500 text-xs hover:text-amber-400 transition-colors underline underline-offset-2"
-            >
-              Terms &amp; Conditions
-            </a> */}
-            <span className="text-slate-500 text-xs hover:text-amber-400 transition-colors underline underline-offset-2">
-              Terms &amp; Conditions
-            </span>
-            <span className="text-slate-700 text-xs">·</span>
-            <p className="text-slate-500 text-xs">
-              © 2026 RNK Legalheads LLP · Financial Year 2025-2026
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 

@@ -1,111 +1,87 @@
 import Logo from "../components/Logo";
 
 export const metadata = {
-  title: "Terms & Conditions – RNK Legalheads LLP",
+  title: "Terms of Use – RNK Legalheads LLP",
   description:
-    "Terms and Conditions governing the use of RNK Legalheads LLP's website, proposal materials, and legal services.",
+    "Terms of Use governing access to and use of the RNK Legalheads LLP website.",
 };
 
 const sections = [
   {
-    id: "acceptance",
-    title: "1. Acceptance of Terms",
+    id: "informational",
+    title: "1. Informational Purpose Only",
     body: [
-      "By accessing or using this website and any materials published herein (the \"Site\"), you agree to be bound by these Terms and Conditions (\"Terms\"). If you do not agree to these Terms, please discontinue use of the Site immediately.",
-      "These Terms apply to all visitors, recipients of proposal documents, and any party that engages with RNK Legalheads LLP (\"RNK\", \"we\", \"us\", or \"our\") through this platform.",
+      "The contents of this Website are provided for general informational purposes only. Nothing on this Website constitutes legal advice, professional advice, solicitation, advertisement, invitation, inducement or a guarantee of any outcome.",
     ],
   },
   {
-    id: "nature",
-    title: "2. Nature of Content – Not Legal Advice",
+    id: "no-relationship",
+    title: "2. No Lawyer-Client Relationship",
     body: [
-      "The information contained on this Site, including any proposal documents, practice profiles, case statistics, or general descriptions of services, is provided for informational and business-development purposes only.",
-      "Nothing on this Site constitutes legal advice, and no attorney-client relationship is formed by accessing or reviewing this material. Legal advice is provided only through a formal engagement letter and retainer agreement executed between RNK Legalheads LLP and the client.",
-      "Statistics and figures (including filing numbers, grant rates, and timelines) are approximate and based on internal records. They do not constitute a guarantee of outcome for any future matter.",
+      "Accessing or using this Website, sending an inquiry, downloading material or communicating with us through the Website does not create a lawyer-client relationship. A lawyer-client relationship arises only after appropriate conflict checks, formal acceptance of engagement and execution/confirmation of engagement terms.",
     ],
   },
   {
-    id: "confidentiality",
-    title: "3. Confidentiality of Proposal Materials",
+    id: "no-reliance",
+    title: "3. No Reliance",
     body: [
-      "Proposal documents, practice profiles, fee schedules, and associated materials shared through this Site or accompanying communications are confidential and are prepared exclusively for the named recipient.",
-      "Recipient agrees not to reproduce, circulate, distribute, or disclose any proposal material to any third party without the prior written consent of RNK Legalheads LLP.",
-      "Unauthorised disclosure may constitute a breach of professional confidence and may attract civil liability.",
+      "You should not act or refrain from acting solely on the basis of any information available on this Website. You should obtain specific legal advice for your facts and circumstances. RNK Legalheads LLP disclaims liability for any action taken on the basis of website content.",
     ],
   },
   {
     id: "ip",
-    title: "4. Intellectual Property",
+    title: "4. Intellectual Property in Website Content",
     body: [
-      "All content on this Site — including text, graphics, logos, design elements, and structural layout — is the intellectual property of RNK Legalheads LLP or its licensors and is protected under applicable Indian and international intellectual property laws.",
-      "You may not copy, reproduce, modify, adapt, translate, or create derivative works from any part of this Site without express prior written permission from RNK Legalheads LLP.",
-      "The RNK Legalheads LLP name, logo, and trade name are proprietary marks of the firm. Any unauthorised use is strictly prohibited.",
+      "All text, graphics, logos, design elements, documents, articles and other content available on the Website are owned by or licensed to RNK Legalheads LLP, unless otherwise stated. You may view the content for personal informational purposes only. You may not copy, reproduce, modify, distribute, publish or commercially exploit any content without prior written permission.",
     ],
   },
   {
-    id: "services",
-    title: "5. Scope of Legal Services",
+    id: "permitted-use",
+    title: "5. Permitted Use",
     body: [
-      "RNK Legalheads LLP offers legal support in the areas of Patents, Designs, Trademarks, Commercial Documentation, and In-House Compliance Advisory under the laws of India, including the Patents Act 1970, the Trade Marks Act 1999, the Designs Act 2000, and allied statutes.",
-      "The scope, fees, deliverables, and timelines for any specific engagement are governed solely by the written retainer or engagement agreement between RNK and the client. This Site does not form part of any such agreement.",
-      "RNK reserves the right to decline any engagement at its sole discretion without providing reasons.",
-    ],
-  },
-  {
-    id: "disclaimer",
-    title: "6. Disclaimer of Warranties",
-    body: [
-      "This Site and all materials are provided on an \"as is\" and \"as available\" basis without any warranty of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement.",
-      "RNK Legalheads LLP does not warrant that the Site will be uninterrupted, error-free, or free of viruses or other harmful components. You access and use the Site at your own risk.",
-      "Past performance, grant rates, or case outcomes referenced on this Site are not indicative of future results in any specific matter.",
-    ],
-  },
-  {
-    id: "liability",
-    title: "7. Limitation of Liability",
-    body: [
-      "To the fullest extent permitted by applicable law, RNK Legalheads LLP, its partners, attorneys, employees, and agents shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising out of or in connection with your use of, or inability to use, this Site or any materials contained herein.",
-      "In no event shall RNK's total liability to you for all claims arising from your use of this Site exceed INR 10,000 (Rupees Ten Thousand only).",
-    ],
-  },
-  {
-    id: "privacy",
-    title: "8. Privacy and Data",
-    body: [
-      "Any personal information you provide to RNK through this Site or accompanying communications — including name, email, phone number, or company details — will be used solely for the purpose of responding to your enquiry or fulfilling the agreed scope of services.",
-      "RNK Legalheads LLP does not sell, rent, or share your personal data with third parties except as required to deliver the services engaged, comply with applicable law, or with your prior consent.",
-      "By submitting your contact details, you consent to RNK using those details to respond to your enquiry and, where relevant, to send updates regarding our services. You may withdraw consent at any time by writing to contact@rnklegalheads.com.",
+      "You agree to use the Website only for lawful purposes and in a manner that does not violate applicable law, professional rules, third-party rights or the security and functioning of the Website. You must not attempt to interfere with the Website, introduce malicious code, scrape content or misuse contact forms.",
     ],
   },
   {
     id: "links",
-    title: "9. Third-Party Links",
+    title: "6. Third-Party Links",
     body: [
-      "This Site may contain links to external websites for reference or convenience. RNK Legalheads LLP does not endorse, control, or assume responsibility for the content, privacy practices, or accuracy of any third-party websites.",
-      "Accessing linked third-party websites is at your own risk and subject to their respective terms of use.",
+      "The Website may contain links to third-party websites or platforms. Such links are provided only for convenience. RNK Legalheads LLP does not endorse and is not responsible for third-party content, policies, availability or security.",
     ],
   },
   {
-    id: "changes",
-    title: "10. Amendments",
+    id: "accuracy",
+    title: "7. Accuracy and Updates",
     body: [
-      "RNK Legalheads LLP reserves the right to revise these Terms at any time without prior notice. Revised Terms will be effective immediately upon posting to this Site.",
-      "Your continued use of the Site after any amendment constitutes your acceptance of the revised Terms. We encourage you to review these Terms periodically.",
+      "While efforts may be made to keep the Website accurate and updated, RNK Legalheads LLP does not warrant that the Website content is complete, current, error-free or suitable for any specific purpose. Content may be modified, removed or updated without notice.",
+    ],
+  },
+  {
+    id: "liability",
+    title: "8. Limitation of Liability",
+    body: [
+      "To the maximum extent permitted under law, RNK Legalheads LLP and its partners, associates, consultants, employees and representatives shall not be liable for any loss, damage, claim or consequence arising from use of or reliance upon the Website or any linked third-party platform.",
+    ],
+  },
+  {
+    id: "privacy",
+    title: "9. Privacy",
+    body: [
+      "Your use of the Website may involve processing of certain information as described in the Privacy Policy. By using the Website, you acknowledge the Privacy Policy.",
     ],
   },
   {
     id: "governing",
-    title: "11. Governing Law and Jurisdiction",
+    title: "10. Governing Law and Jurisdiction",
     body: [
-      "These Terms shall be governed by and construed in accordance with the laws of India. Any dispute arising out of or in connection with these Terms or your use of this Site shall be subject to the exclusive jurisdiction of the courts at New Delhi, India.",
-      "If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.",
+      "These Terms of Use shall be governed by the laws of India. Subject to applicable law, courts at New Delhi shall have jurisdiction over disputes arising from use of the Website.",
     ],
   },
   {
     id: "contact",
-    title: "12. Contact",
+    title: "11. Contact",
     body: [
-      "If you have questions about these Terms or wish to raise a concern, please contact us:",
+      "For any query regarding these Terms of Use, please contact RNK Legalheads LLP:",
     ],
     contact: true,
   },
@@ -143,11 +119,12 @@ export default function TermsPage() {
           className="text-4xl md:text-5xl font-black text-white mb-4"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Terms &amp; Conditions
+          Terms of Use
         </h1>
         <p className="text-slate-400 text-lg max-w-2xl">
-          Please read these Terms and Conditions carefully before using this website or engaging
-          with RNK Legalheads LLP for legal services.
+          These Terms of Use govern your access to and use of the website of RNK Legalheads LLP.
+          By accessing this Website, you agree to be bound by these Terms of Use, the Website
+          Disclaimer and the Privacy Policy. If you do not agree, please do not use the Website.
         </p>
         <div className="mt-6 flex flex-wrap gap-6 text-sm text-slate-500">
           <span>Effective date: <span className="text-slate-300 font-medium">1 April 2026</span></span>
@@ -229,9 +206,9 @@ export default function TermsPage() {
           style={{ background: "rgba(217,119,6,0.08)", border: "1px solid rgba(217,119,6,0.2)" }}
         >
           <p className="text-amber-300 text-sm leading-relaxed">
-            These Terms and Conditions were last updated on <strong>1 April 2026</strong>.
-            RNK Legalheads LLP reserves the right to update these Terms at any time.
-            Continued use of the Site constitutes acceptance of any revised Terms.
+            These Terms of Use were last updated on <strong>1 April 2026</strong>.
+            RNK Legalheads LLP reserves the right to update these Terms at any time without prior notice.
+            Continued use of the Website constitutes acceptance of any revised Terms.
           </p>
         </div>
       </div>
@@ -240,12 +217,15 @@ export default function TermsPage() {
       <div className="border-t border-white/10">
         <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-slate-500 text-xs">© 2026 RNK Legalheads LLP · All rights reserved.</p>
-          <a
-            href="/"
-            className="text-xs text-slate-500 hover:text-amber-400 transition-colors"
-          >
-            Return to Proposal
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="/privacy-policy" className="text-xs text-slate-500 hover:text-amber-400 transition-colors underline underline-offset-2">
+              Privacy Policy
+            </a>
+            <span className="text-slate-700 text-xs">·</span>
+            <a href="/" className="text-xs text-slate-500 hover:text-amber-400 transition-colors">
+              Return to Home
+            </a>
+          </div>
         </div>
       </div>
     </div>
